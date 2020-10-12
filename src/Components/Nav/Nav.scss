@@ -3,7 +3,13 @@
   height: 100vh;
   position: fixed;
   display: flex;
-  background: grey;
+  background-image: linear-gradient(
+    99deg,
+    #ff70a6,
+    #ff9770 40%,
+    #ffd670 73%,
+    #e9ff70
+  );
   flex-direction: column;
   justify-content: space-evenly;
   display: block;
@@ -21,17 +27,23 @@
     align-items: center;
     background-image: url(https://media-exp1.licdn.com/dms/image/C4E03AQEK5TuKQzvWsA/profile-displayphoto-shrink_200_200/0?e=1604534400&v=beta&t=p4NQNXcBRPlgM-qm2rOYXny7UFgM_7l0bLIetFxd1ww);
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 40px;
   }
   .nav-links {
-    width:100%;
+    width: 100%;
     height: 130px;
-    background-image: url(https://www.pngkit.com/png/full/436-4368614_png-file-new-post-icon-png.png);
-    background-size: cover;
-    background-repeat: none;
-  
-    .create-post-image {
-     
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  img {
+    height: 60px;
+    width: 60px;
+    margin: 20px;
+  }
+  .logout {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
   }
 }
