@@ -12,3 +12,4 @@ img text,
 content text,
 author_id int references helo_users(user_id)
 )
+
