@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Auth.scss";
-import image from './image'
+import image from "./image";
+import { connect } from "react-redux";
+import { addUser } from "../../ducks/reducer";
 
-export default class Auth extends Component {
+class Auth extends Component {
   constructor() {
     super();
 
@@ -25,8 +27,8 @@ export default class Auth extends Component {
     axios
       .post("/api/register", { username, password })
       .then((res) => {
-        // redux stuff curt
-        this.props.history.push('/dashboard')
+        this.props.addUser(res.data);
+        this.props.history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -35,8 +37,8 @@ export default class Auth extends Component {
     axios
       .post("/api/login", { username, password })
       .then((res) => {
-        // redux stuff curt
-        this.props.history.push('/dashboard')
+        this.props.addUser(res.data);
+        this.props.history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -44,7 +46,7 @@ export default class Auth extends Component {
     return (
       <div className="auth-container">
         <div className="input-container">
-        <img src={image} alt="logo"></img>
+          <img src={image} alt="logo"></img>
           <h1>Helo</h1>
           <div className="inputs">
             <p>Username : </p>
@@ -71,3 +73,8 @@ export default class Auth extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, { addUser })(Auth);

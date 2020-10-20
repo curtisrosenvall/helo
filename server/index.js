@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(
   session({
     resave: false,
-    saveUniitialized: true,
+    saveUninitialized: true,
     secret: SESSION_SECRET,
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 },
   })
@@ -31,7 +31,8 @@ massive({
 // auth endpoints
 app.post('/api/register', authCtrl.register);
 app.post('/api/login', authCtrl.login);
-app.get('/api/logout', authCtrl.logout);
+app.put('/api/logout', authCtrl.logout);
+app.get('/api/verify', authCtrl.verify)
 
 const PORT = 6060;
 
